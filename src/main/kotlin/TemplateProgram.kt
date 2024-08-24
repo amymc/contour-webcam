@@ -14,6 +14,7 @@ import boofcv.alg.filter.binary.GThresholdImageOps
 import boofcv.alg.filter.binary.ThresholdImageOps
 import boofcv.struct.ConnectRule
 import boofcv.struct.image.GrayU8
+// import org.openrndr.ffmpeg.loadVideoDevice
 
 import org.openrndr.math.CatmullRomChain2
 
@@ -29,6 +30,13 @@ fun main() = application {
 
     program {
         val videoPlayer = VideoPlayerFFMPEG.fromDevice()
+
+        // Use iphone camera instead of webcam
+        // camera app needs to be open when trying to connect
+        // val videoPlayer = loadVideoDevice("amy")
+
+
+
         videoPlayer.play()
 
         val renderTarget1 = renderTarget(768, 576) {
